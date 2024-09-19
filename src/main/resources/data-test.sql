@@ -1,45 +1,45 @@
 
+-- Tabla Admin
+INSERT INTO customer (first_name, dni, last_name, name_company, ruc, phone, user_id) VALUES
+                                                                                        ('Carlos', '12345678', 'Mendoza', 'TechCorp', '123456789', '987654321', 1);
+
 -- Tabla User
-INSERT INTO User (id, dni, names, last_names, email, password, type_User) VALUES
-                                                                              (1, '123456789', 'James', 'Pérez', 'james.perez@example.com', 'password123', 'ADMIN'),
-                                                                              (2, '987654321', 'Lucía', 'Gómez', 'lucia.gomez@example.com', 'password123', 'DEVELOPER'),
-                                                                              (3, '456789123', 'Carlos', 'Mendoza', 'carlos.mendoza@example.com', 'password123', 'CUSTOMER');
-    ON CONFLICT DO NOTHING;
+INSERT INTO users (username, email, pass, created_at, updatedAt, role) VALUES
+                                                                           ('jdoe', 'jdoe@example.com', 'password123', '2024-01-01', '2024-01-05', 'CUSTOMER'),
+                                                                           ('asmith', 'asmith@example.com', 'password456', '2024-02-01', '2024-02-03', 'DEVELOPER');
+
 -- Tabla Customer
-INSERT INTO Customer (id_customer, dni, company_name, ruc, phone) VALUES
-    (1, '456789123', 'Mendoza Tech', '20345678901', '987654321');
+INSERT INTO customer (first_name, dni, last_name, nameCompany, ruc, phone, user_id) VALUES
+                                                                                        ('Carlos', '12345678', 'Mendoza', 'TechCorp', '123456789', '987654321', 1);
 
 -- Tabla Developer
-INSERT INTO Developer (id_developer, dni, portfolio, hours_worked, payment_rate, work_experience, years_experience) VALUES
-    (1, '987654321', 'https://portfolio.com/lucia', 150, 25, 'Backend Development', 3);
+INSERT INTO developer (dni, first_name, last_name, portfolio, skills, hours_worked, payment_rate, work_experience, years_experience, project_id, user_id) VALUES
+                                                                                                                                                              ('87654321', 'Lucía', 'Gómez', 'https://portfolio.example.com', 'Java, Spring Boot, React', 120, 45.50, '5 años de experiencia en desarrollo full-stack', 5, 1, 2);
 
+-- Tabla joboffer
+INSERT INTO joboffer (description, budget, duration, createdAt, updatedAt, customer_id, project_id) VALUES
+                                                                                                        ('Desarrollo de una plataforma de e-commerce', 5000.00, 30, '2024-09-01', '2024-09-10', 1, 1);
 -- Tabla Project
-INSERT INTO Project (id_project, name, description, milestones, presentation, revision, status, category, qualification, createdAt, updatedAt) VALUES
-                                                                                                                                                   (1, 'Web Platform Development', 'Develop a freelance platform', 'Milestone 1', 'Online Presentation', 'Reviewed', 'ACTIVE', 'Web Development', 4.5, NOW(), NOW()),
-                                                                                                                                                   (2, 'Mobile App for E-commerce', 'Build an e-commerce mobile app', 'Milestone 2', 'Initial Presentation', 'Pending', 'PENDING', 'Mobile Development', 0, NOW(), NOW());
+INSERT INTO project (name, description, milestones, presentation, revisions, status, category_project, qualification, createdAt, updatedAt, customer_id, developer_id) VALUES
+                                                                                                                                                                           ('Proyecto Freelance', 'Proyecto para el desarrollo de una plataforma', 'Milestone 1', 'Presentación inicial', 3, 'En progreso', 'Desarrollo Web', 4.5, '2024-09-20 12:00:00', '2024-09-20 12:30:00', 1, 2);
+
 
 -- Tabla Skill
-INSERT INTO skill (id_skill, name, description) VALUES
-                                                    (1, 'Java', 'Experience in Java programming language'),
-                                                    (2, 'Spring Boot', 'Experience in Spring Boot framework'),
-                                                    (3, 'MySQL', 'Experience in MySQL database management');
+INSERT INTO skill (name, description) VALUES
+                                          ('Java', 'Lenguaje de programación orientado a objetos'),
+                                          ('Spring Boot', 'Framework para el desarrollo de aplicaciones web en Java');
 
 -- Tabla skills_project (relación entre proyecto y habilidades)
-INSERT INTO skills_project (id_skills_project, id_project, id_skill) VALUES
-                                                                         (1, 1, 1),  -- Java for Project 1
-                                                                         (2, 1, 2),  -- Spring Boot for Project 1
-                                                                         (3, 2, 3);  -- MySQL for Project 2
+INSERT INTO skills_project (skill_id, project_id) VALUES
+                                                      (1, 1),  -- Relaciona una habilidad con un proyecto
+                                                      (2, 1);  -- Otra relación de habilidad con el mismo proyecto
 
--- Tabla job_offer (Ofertas de trabajo)
-INSERT INTO job_offer (id_offer, id_customer, id_project, description, budget, duration, publication_date) VALUES
-                                                                                                               (1, 1, 1, 'Looking for a backend developer for a web platform', 2000, '3 months', NOW()),
-                                                                                                               (2, 1, 2, 'Mobile app developer needed for e-commerce', 3000, '4 months', NOW());
 
 -- Tabla postulations (Postulaciones de los desarrolladores a ofertas)
-INSERT INTO postulations (id_postulations, id_developer, id_offer, postulation_date, status) VALUES
-                                                                                                 (1, 1, 1, NOW(), 'PENDING'),
-                                                                                                 (2, 1, 2, NOW(), 'PENDING');
+INSERT INTO postulations (status, postulation_date, description, developer_id) VALUES
+                                                                                   ('Pending', '2024-09-20 14:30:00', 'Postulación para nuevo proyecto', 1);
 
--- Tabla Payment (Pagos realizados)
-INSERT INTO Payment (id, transaction_date, total, total_date, payment_method, facturation, createdAt, updatedAt) VALUES
-    (1, NOW(), 5000, NOW(), 'Credit Card', 'Paid in full', NOW(), NOW());
+-- Tabla payment
+INSERT INTO payment (transactionDate, total, totalDate, paymentMethod, facturation, createdAt, updatedAt, project_id, customer_id) VALUES
+                                                                                                                                       ('2024-09-01 10:00:00', 1500.00, '2024-09-01 10:00:00', 'Credit Card', 'Invoice #001', '2024-09-01 10:00:00', '2024-09-10 15:00:00', 1, 1);
+
