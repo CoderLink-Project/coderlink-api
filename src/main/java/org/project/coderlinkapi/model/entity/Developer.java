@@ -11,7 +11,6 @@ import java.text.DecimalFormat;
 public class Developer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private Long id;
     @Column(name = "dni", nullable = false, length = 8)
     private String dni;
