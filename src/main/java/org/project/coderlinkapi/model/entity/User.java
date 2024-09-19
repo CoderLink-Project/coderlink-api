@@ -8,33 +8,35 @@ import java.time.LocalDate;
 
 @Data
 @Entity
-@Table(name = "customers")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    private Long id;
+
     @Column(name = "username", nullable = false, length = 20)
     private String userName;
+
     @Column(name="email", nullable = false, length = 100)
     private String email;
-    @Column(name="pass" , nullable = false, length = 50)
+
+    @Column(name="pass", nullable = false, length = 50)
     private String password;
-    @Column(name = "typeuser", nullable = false, length = 20)
-    private boolean typeUser; //"admin", "cliente", "desarrollador"
-    @Column(name = "ubication", nullable = false, length = 20)
-    private String ubication;
-    private Boolean isAdmin = false;
+
     @Column(name="created_at")
     private LocalDate createAt;
+
     @Column(name = "updatedAt")
     private LocalDate updatedAt;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private Role role;
 
-    @OneToOne
-    private Developer developer;
-
-    @OneToOne
+    @OneToOne(mappedBy = "user")
     private Customer customer;
+
+    @OneToOne(mappedBy = "user")
+    private Developer developer;
 }
+

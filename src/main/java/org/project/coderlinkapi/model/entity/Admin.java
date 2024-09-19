@@ -9,5 +9,5 @@ import lombok.Data;
 public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int adminId;
+    private int id;
 }

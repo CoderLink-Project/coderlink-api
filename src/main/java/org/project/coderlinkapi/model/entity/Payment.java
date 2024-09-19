@@ -12,7 +12,8 @@ import java.time.LocalDateTime;
 public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long paymentId;
+
+    private Long id;
     @Column(name = "transactionDate", nullable = false, length = 10)
     private LocalDateTime transactionDate;
     @Column(name = "total", nullable = false, length = 20)
@@ -29,11 +30,10 @@ public class Payment {
     private LocalDateTime updatedAt;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "project_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_payment"))
+    @JoinColumn(name = "project_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_project_payment"))
     private Project project;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_purchase_customer"))
     private User customer;
-
 }

@@ -1,7 +1,6 @@
 package org.project.coderlinkapi.model.entity;
 
 
-import ch.qos.logback.core.net.server.Client;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -14,8 +13,9 @@ import java.util.List;
 public class JobOffer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long job_offer_id;
-    @Column(name = "description", nullable = false, length = 50)
+
+    private Long id;
+    @Column(name = "description", nullable = false, length = 250)
     private String description;
     @Column(name = "budget", nullable = false)
     private Double budget;
@@ -32,8 +32,8 @@ public class JobOffer {
 
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "client_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_customer_id"))
-    private Customer client;
+    @JoinColumn(name = "customer_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_customer_id"))
+    private Customer customer;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_project_id"))
