@@ -26,9 +26,7 @@ public class UserRequestDTO {
     @Size(min = 8, max = 50, message = "La contraseña debe tener entre 8 y 50 caracteres")
     private String pass;
 
-    private LocalDate createAt;
-    private LocalDate updatedAt;
 
-    @NotBlank
+    @NotNull
     private Role role;
 }
