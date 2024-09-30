@@ -1,4 +1,5 @@
 package org.project.coderlinkapi.controller;
 
-public class AdminCategoryController {
+public class AuthController {
+
 }

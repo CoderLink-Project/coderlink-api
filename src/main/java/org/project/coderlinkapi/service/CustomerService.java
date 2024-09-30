@@ -1,11 +1,16 @@
 package org.project.coderlinkapi.service;
-import org.project.coderlinkapi.model.entity.Customer;
+
+import org.project.coderlinkapi.dto.CustomerDTO;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+import java.util.List;
 
 public interface CustomerService {
-
-    Customer getCustomerById(Long id);
-
-    Customer updateCustomer(Long id, Customer updatedCustomer);
-
-    Customer createCustomer(Customer customer);
+    List<CustomerDTO> getAll();
+    Page<CustomerDTO> paginate(Pageable pageable);
+    CustomerDTO findById(Integer id);
+    CustomerDTO create(CustomerDTO customerDTO);
+    CustomerDTO update(Integer id, CustomerDTO updateCustomerDTO);
+    void delete(Integer id);
 }
