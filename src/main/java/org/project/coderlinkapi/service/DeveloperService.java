@@ -10,7 +10,7 @@ public interface DeveloperService {
     List<DeveloperDTO> getAll();
     Page<DeveloperDTO> paginate(Pageable pageable);
     DeveloperDTO findById(Integer id);
-    DeveloperDTO create(DeveloperDTO AuthorDTO);
-    DeveloperDTO update(Integer id, DeveloperDTO updateAuthorDTO);
+    DeveloperDTO create(DeveloperDTO DeveloperDTO);
+    DeveloperDTO update(Integer id, DeveloperDTO updateDeveloperDTO);
     void delete(Integer id);
 }

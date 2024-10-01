@@ -10,7 +10,7 @@ public interface CustomerService {
     List<CustomerDTO> getAll();
     Page<CustomerDTO> paginate(Pageable pageable);
     CustomerDTO findById(Integer id);
-    CustomerDTO create(CustomerDTO customerDTO);
+    CustomerDTO create(CustomerDTO CustomerDTO);
     CustomerDTO update(Integer id, CustomerDTO updateCustomerDTO);
     void delete(Integer id);
 }

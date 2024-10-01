@@ -16,8 +16,8 @@ public class CustomerDTO {
     @Size(max = 50, message = "El apellido debe tener 50 caracteres o menos")
     private String lastName;
 
-    @NotBlank(message = "La descripcion es obligatorio")
-    @Size(max = 500, message = "La biografia debe tener 500 caracteres o menos")
+    @NotBlank(message = "La descripcion es obligatoria")
+    @Size(max = 500, message = "La descripcion debe tener 500 caracteres o menos")
     private String description;
 
     @NotBlank(message = "El nombre de la compañia es obligatorio")

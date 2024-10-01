@@ -70,7 +70,7 @@ public class CustomerServiceImpl implements CustomerService {
 
         customerRepository.findByFirstNameAndLastName(updateCustomerDTO.getFirstName(), updateCustomerDTO.getLastName())
                 .filter(existingCustomer -> !existingCustomer.getId().equals(id))
-                .ifPresent(existingcCstomer -> {
+                .ifPresent(existingCustomer -> {
                     throw new BadRequestException("Ya existe un cliente con el mismo nombre y apellido");
                 });
 

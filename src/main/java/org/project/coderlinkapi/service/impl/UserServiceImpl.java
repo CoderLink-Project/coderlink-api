@@ -189,8 +189,6 @@ public class UserServiceImpl implements UserService {
         return userMapper.toUserProfileDTO(updatedUser);
     }
 
-
-
     @Transactional
     @Override
     public UserProfileDTO getUserProfileById(Integer id) {
