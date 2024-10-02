@@ -2,7 +2,6 @@ package org.project.coderlinkapi.mapper;
 
 import org.modelmapper.ModelMapper;
 import org.project.coderlinkapi.dto.DeveloperDTO;
-import org.project.coderlinkapi.model.entity.Customer;
 import org.project.coderlinkapi.model.entity.Developer;
 import org.springframework.stereotype.Component;
 

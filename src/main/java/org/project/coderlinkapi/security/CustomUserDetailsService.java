@@ -2,7 +2,6 @@ package org.project.coderlinkapi.security;
 
 import org.project.coderlinkapi.model.entity.User;
 import org.project.coderlinkapi.repository.UserRepository;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

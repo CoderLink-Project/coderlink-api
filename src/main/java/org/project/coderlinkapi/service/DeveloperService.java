@@ -1,16 +1,10 @@
 package org.project.coderlinkapi.service;
 
 import org.project.coderlinkapi.dto.DeveloperDTO;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-
 import java.util.List;
 
 public interface DeveloperService {
-    List<DeveloperDTO> getAll();
-    Page<DeveloperDTO> paginate(Pageable pageable);
-    DeveloperDTO findById(Integer id);
-    DeveloperDTO create(DeveloperDTO DeveloperDTO);
-    DeveloperDTO update(Integer id, DeveloperDTO updateDeveloperDTO);
+    DeveloperDTO setProjectMilestone(int projectId, DeveloperDTO developerDTO);
+    List<DeveloperDTO> getProjectMilestone(int projectId);
     void delete(Integer id);
 }
