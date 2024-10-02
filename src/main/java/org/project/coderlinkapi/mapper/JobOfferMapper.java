@@ -6,7 +6,6 @@ import org.project.coderlinkapi.dto.JobOfferCreateEditDTO;
 import org.modelmapper.ModelMapper;
 import org.project.coderlinkapi.model.entity.JobOffer;
 import org.modelmapper.convention.MatchingStrategies;
-import org.modelmapper.spi.MatchingStrategy;
 import org.springframework.stereotype.Component;
 
 @Component
