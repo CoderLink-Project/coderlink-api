@@ -14,8 +14,6 @@ import org.project.coderlinkapi.model.entity.Customer;
 import org.project.coderlinkapi.model.entity.Role;
 import org.project.coderlinkapi.model.entity.User;
 import org.project.coderlinkapi.model.enums.ERole;
-import org.project.coderlinkapi.repository.DeveloperRepository;
-import org.project.coderlinkapi.repository.CustomerRepository;
 import org.project.coderlinkapi.repository.RoleRepository;
 import org.project.coderlinkapi.repository.UserRepository;
 import org.project.coderlinkapi.security.TokenProvider;
@@ -23,7 +21,6 @@ import org.project.coderlinkapi.service.UserService;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -31,8 +28,6 @@ import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.Collections;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
