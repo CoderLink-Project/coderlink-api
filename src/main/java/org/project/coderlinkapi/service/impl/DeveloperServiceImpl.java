@@ -18,12 +18,14 @@ import java.util.List;
 public class DeveloperServiceImpl implements DeveloperService {
     private final DeveloperRepository developerRepository;
     private final DeveloperMapper developerMapper;
+    @Transactional(readOnly = true)
 
     public DeveloperDTO setProjectMilestone(int projectId, DeveloperDTO developerDTO) {
    Developer existingdeveloper = developerRepository.findById(projectId).orElseThrow(() -> new ResourceNotFoundException(""));
    Developer savedDeveloper = developerRepository.save(existingdeveloper);
    return developerMapper.toDTO(savedDeveloper);
     }
+    @Transactional(readOnly = true)
 
     public List<DeveloperDTO> getProjectMilestone(int projectId) {
         Developer developer = developerRepository.findById(projectId).orElseThrow(() -> new ResourceNotFoundException(""));

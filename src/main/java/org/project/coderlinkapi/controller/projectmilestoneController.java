@@ -1,15 +1,15 @@
 package org.project.coderlinkapi.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.project.coderlinkapi.dto.DeveloperDTO;
 import org.project.coderlinkapi.dto.SetProjectMilestoneDTO;
 import org.project.coderlinkapi.service.SetProjectMilestoneService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@PreAuthorize("hasAnyRole('ADMIN', 'CUSTOMER')")
 @RequiredArgsConstructor
 @RequestMapping
 @RestController
@@ -27,7 +27,7 @@ public class projectmilestoneController {
         return ResponseEntity.ok(updatedSetProjectMilestoneDTO);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
         setProjectMilestoneService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
