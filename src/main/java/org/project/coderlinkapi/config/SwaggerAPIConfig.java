@@ -29,9 +29,9 @@ public class SwaggerAPIConfig {
 
         //Informacion de contacto
         Contact contact = new Contact();
-        contact.setEmail("areyesa8@upao.edu.com");
-        contact.setName("DavidReyes");
-        contact.setUrl("https://www.hampcode.com");
+        contact.setEmail("fbenitesm2@upao.edu.pe");
+        contact.setName("Fernando Benites Mendoza");
+        contact.setUrl("https://www.Coderlink.com");
 
         License mitLicense = new License().name("MIT License").url("https://opensource.org/licenses/MIT");
 
@@ -41,7 +41,7 @@ public class SwaggerAPIConfig {
                 .version("1.0")
                 .contact(contact)
                 .description("API Restful de contratar desarrolladores freelancers")
-                .termsOfService("https://www.hampcode.com/terms")
+                .termsOfService("https://www.Coderlink.com/terms")
                 .license(mitLicense);
 
         // Configuración de seguridad JWT
