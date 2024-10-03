@@ -31,6 +31,12 @@ public class Project {
     @Column(name = "status", nullable = false)
     private String status;
 
+    @Column(name = "budget", nullable = false)
+    private Double budget;
+
+    @Column(name = "completion_date", nullable = false)
+    private LocalDateTime completionDate;
+
     @Column(name = "category_project", nullable = false, length = 50)
     private String categoryProject;
 
