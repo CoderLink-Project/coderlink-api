@@ -44,5 +44,4 @@ public class DeveloperDTO {
 
     @Min(value = 0, message = "Los años de experiencia no pueden ser negativos")
     private int yearsExperience;
-
 }

@@ -22,4 +22,8 @@ public class Postulations {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "developer_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_postulations_developer"))
     private Developer developer;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "job_offer_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_postulations_job_offer"))
+    private JobOffer jobOffer;
 }

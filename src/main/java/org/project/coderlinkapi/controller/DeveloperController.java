@@ -12,6 +12,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+import org.project.coderlinkapi.service.PostulationService;
+import org.project.coderlinkapi.dto.PostulationResponseDTO;
+import org.project.coderlinkapi.dto.PostulationRequestDTO;
 
 import java.util.List;
 
@@ -22,6 +25,7 @@ import java.util.List;
 public class DeveloperController {
 
     private final DeveloperService developerService;
+    private PostulationService postulationService;
 
     @GetMapping
     public ResponseEntity<List<DeveloperDTO>> listAll() {
@@ -58,5 +62,9 @@ public class DeveloperController {
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
         developerService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+    public ResponseEntity<PostulationResponseDTO> applyToJob(@RequestBody @Valid PostulationRequestDTO postulationsDTO) {
+        PostulationResponseDTO savedPostulation = postulationService.applyToJob(postulationsDTO);
+        return new ResponseEntity<>(savedPostulation, HttpStatus.CREATED);
     }
 }
