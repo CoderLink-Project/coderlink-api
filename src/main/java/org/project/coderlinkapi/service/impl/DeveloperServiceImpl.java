@@ -1,6 +1,7 @@
 package org.project.coderlinkapi.service.impl;
 
 import org.project.coderlinkapi.dto.DeveloperDTO;
+import org.project.coderlinkapi.dto.UpdateDeveloperRateDTO;
 import org.project.coderlinkapi.exception.BadRequestException;
 import org.project.coderlinkapi.exception.ResourceNotFoundException;
 import org.project.coderlinkapi.mapper.DeveloperMapper;
@@ -15,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Service
@@ -96,6 +98,26 @@ public class DeveloperServiceImpl implements DeveloperService {
         Developer developer = developerRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("El desarrollador con ID " + id + " no fue encontrado"));
         developerRepository.delete(developer);
+    }
+
+    @Override
+    public DeveloperDTO updatePaymentRate(UpdateDeveloperRateDTO updateDeveloperRateDTO) {
+        Optional<Developer> developerOptional = developerRepository.findById(updateDeveloperRateDTO.getDeveloperId());
+
+        if (developerOptional.isPresent()) {
+            Developer developer = developerOptional.get();
+
+            // Actualizar la tarifa con el mapper
+            developer = developerMapper.updatePaymentRateFromDTO(developer, updateDeveloperRateDTO);
+
+            // Guardar el desarrollador actualizado en la base de datos
+            developerRepository.save(developer);
+
+            // Devolver el DTO del desarrollador actualizado
+            return developerMapper.toDTO(developer);
+        } else {
+            throw new RuntimeException("Desarrollador no encontrado con ID: " + updateDeveloperRateDTO.getDeveloperId());
+        }
     }
 }
 

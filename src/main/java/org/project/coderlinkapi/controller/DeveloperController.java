@@ -1,6 +1,7 @@
 package org.project.coderlinkapi.controller;
 
 import org.project.coderlinkapi.dto.DeveloperDTO;
+import org.project.coderlinkapi.dto.UpdateDeveloperRateDTO;
 import org.project.coderlinkapi.model.entity.Developer;
 import org.project.coderlinkapi.service.DeveloperService;
 import jakarta.validation.Valid;
@@ -58,5 +59,11 @@ public class DeveloperController {
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
         developerService.delete(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    @PutMapping("/update-rate")
+    public ResponseEntity<DeveloperDTO> updatePaymentRate(@RequestBody UpdateDeveloperRateDTO updateDeveloperRateDTO) {
+        DeveloperDTO updatedDeveloper = developerService.updatePaymentRate(updateDeveloperRateDTO);
+        return ResponseEntity.ok(updatedDeveloper);
     }
 }

@@ -1,6 +1,7 @@
 package org.project.coderlinkapi.service;
 
 import org.project.coderlinkapi.dto.DeveloperDTO;
+import org.project.coderlinkapi.dto.UpdateDeveloperRateDTO;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -13,4 +14,5 @@ public interface DeveloperService {
     DeveloperDTO create(DeveloperDTO DeveloperDTO);
     DeveloperDTO update(Integer id, DeveloperDTO updateDeveloperDTO);
     void delete(Integer id);
+    DeveloperDTO updatePaymentRate(UpdateDeveloperRateDTO updateDeveloperRateDTO);
 }
