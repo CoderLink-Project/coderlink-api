@@ -15,6 +15,7 @@ public class Developer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
+    @Column(name = "id", nullable = false, length = 9)
     private Integer id;
     @Column(name = "dni", nullable = false, length = 8)
     private String dni;
@@ -26,6 +27,8 @@ public class Developer {
     private String description;
     @Column(name = "portfolio", columnDefinition = "TEXT")
     private String portfolio;
+    @Column(name = "yearsExperience", columnDefinition = "TEXT")
+    private Integer yearExperience;
     // Calificación en estrellas (1 a 5)
     @Column(name = "rating", nullable = true)
     @Min(1)  // Mínimo 1 estrella
@@ -42,8 +45,6 @@ public class Developer {
     private Double paymentRate;
     @Column(name = "work_experience", columnDefinition = "TEXT")
     private String workExperience;
-    @Column(name = "years_experience", nullable = false, length = 10)
-    private int yearsExperience;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_id")

@@ -83,7 +83,7 @@ public class DeveloperServiceImpl implements DeveloperService {
         developerFromDb.setHoursWorked(updateDeveloperDTO.getHoursWorked());
         developerFromDb.setPaymentRate(updateDeveloperDTO.getPaymentRate());
         developerFromDb.setWorkExperience(updateDeveloperDTO.getWorkExperience());
-        developerFromDb.setYearsExperience(updateDeveloperDTO.getYearsExperience());
+        developerFromDb.setYearExperience(updateDeveloperDTO.getYearsExperience());
         developerFromDb.setUpdatedAt(LocalDateTime.now());
 
         developerFromDb = developerRepository.save(developerFromDb);
