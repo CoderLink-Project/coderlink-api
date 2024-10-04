@@ -29,8 +29,8 @@ public class SwaggerAPIConfig {
 
         //Informacion de contacto
         Contact contact = new Contact();
-        contact.setEmail("rgastanaduil1@upao.edu.com");
-        contact.setName("RaulGastañuadi");
+        contact.setEmail("coderlink@gmail.com");
+        contact.setName("coderlink");
         contact.setUrl("https://www.coderlink.com");
 
         License mitLicense = new License().name("MIT License").url("https://opensource.org/licenses/MIT");
