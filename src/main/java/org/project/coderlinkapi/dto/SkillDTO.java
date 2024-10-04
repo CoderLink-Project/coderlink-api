@@ -1,4 +1,4 @@
 package org.project.coderlinkapi.dto;
 
-public class CategoryDTO {
+public class SkillDTO {
 }
