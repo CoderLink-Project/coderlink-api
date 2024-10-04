@@ -30,7 +30,7 @@ public class SwaggerAPIConfig {
         //Informacion de contacto
         Contact contact = new Contact();
         contact.setEmail("areyesa8@upao.edu.com");
-        contact.setName("DavidReyes");
+        contact.setName("AlanReyes");
         contact.setUrl("https://www.hampcode.com");
 
         License mitLicense = new License().name("MIT License").url("https://opensource.org/licenses/MIT");
