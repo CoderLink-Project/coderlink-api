@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 public class Postulations {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @Column(name = "status", nullable = false, length = 150)
     private String status;
     @Column(name = "postulation_date", nullable = false)

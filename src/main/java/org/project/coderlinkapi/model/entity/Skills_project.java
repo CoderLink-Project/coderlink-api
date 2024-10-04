@@ -9,7 +9,7 @@ import lombok.Data;
 public class Skills_project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "skill_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "skills_project_skill"))
