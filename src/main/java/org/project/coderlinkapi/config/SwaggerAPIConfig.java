@@ -32,7 +32,6 @@ public class SwaggerAPIConfig {
         contact.setEmail("coderlink@gmail.com");
         contact.setName("Coderlink");
         contact.setUrl("https://www.coderlink.com");
-
         License mitLicense = new License().name("MIT License").url("https://opensource.org/licenses/MIT");
 
         //Informacion general de la API
