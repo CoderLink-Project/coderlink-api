@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 public class Postulations {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     @Column(name = "status", nullable = false, length = 150)
     private String status;
     @Column(name = "postulation_date", nullable = false)
@@ -22,4 +22,8 @@ public class Postulations {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "developer_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_postulations_developer"))
     private Developer developer;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "job_offer_id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "FK_postulations_job_offer"))
+    private JobOffer jobOffer;
 }
