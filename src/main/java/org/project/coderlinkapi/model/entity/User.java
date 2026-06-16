@@ -2,7 +2,7 @@ package org.project.coderlinkapi.model.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.project.coderlinkapi.model.enums.Role;
+import org.project.coderlinkapi.model.enums.ERole;
 
 import java.time.LocalDate;
 
@@ -12,7 +12,7 @@ import java.time.LocalDate;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(name = "username", nullable = false, length = 20)
     private String userName;
@@ -29,14 +29,16 @@ public class User {
     @Column(name = "updatedAt")
     private LocalDate updatedAt;
 
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private Role role;
-
-    @OneToOne(mappedBy = "user")
+    // Relación uno a uno con Customer (si el usuario es cliente)
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Customer customer;
 
-    @OneToOne(mappedBy = "user")
+    // Relación con Developer (si el usuario es desarrollador)
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Developer developer;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "role_id", referencedColumnName = "id")
+    private Role role;
 }
 
