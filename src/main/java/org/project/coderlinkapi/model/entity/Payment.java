@@ -13,7 +13,7 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private Long id;
+    private Integer id;
     @Column(name = "transactionDate", nullable = false, length = 10)
     private LocalDateTime transactionDate;
     @Column(name = "total", nullable = false, length = 20)
