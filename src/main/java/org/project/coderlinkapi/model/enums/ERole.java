@@ -1,8 +1,7 @@
 package org.project.coderlinkapi.model.enums;
 
-public enum Role {
+public enum ERole {
     ADMIN,
-    USER,
     CUSTOMER,
     DEVELOPER
 }
