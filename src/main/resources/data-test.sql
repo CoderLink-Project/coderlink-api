@@ -4,13 +4,14 @@ INSERT INTO customer (first_name, dni, last_name, name_company, ruc, phone, user
                                                                                         ('Carlos', '12345678', 'Mendoza', 'TechCorp', '123456789', '987654321', 1);
 
 -- Tabla User
-INSERT INTO users (username, email, pass, created_at, updatedAt, role) VALUES
-                                                                           ('jdoe', 'jdoe@example.com', 'password123', '2024-01-01', '2024-01-05', 'CUSTOMER'),
-                                                                           ('asmith', 'asmith@example.com', 'password456', '2024-02-01', '2024-02-03', 'DEVELOPER');
+INSERT INTO user (id, username, email, pass, created_at, updated_at, role) VALUES
+                                                                               (1, 'jdoe', 'jdoe@example.com', 'password123', '2024-01-01', '2024-01-05', 'CUSTOMER'),
+                                                                               (2, 'asmith', 'asmith@example.com', 'password456', '2024-02-01', '2024-02-03', 'DEVELOPER');
+
 
 -- Tabla Customer
-INSERT INTO customer (first_name, dni, last_name, nameCompany, ruc, phone, user_id) VALUES
-                                                                                        ('Carlos', '12345678', 'Mendoza', 'TechCorp', '123456789', '987654321', 1);
+INSERT INTO customer (first_name, dni, last_name, name_company, ruc, phone, user_id) VALUES
+    ('Carlos', '12345678', 'Mendoza', 'TechCorp', '123456789', '987654321', 1);
 
 -- Tabla Developer
 INSERT INTO developer (dni, first_name, last_name, portfolio, skills, hours_worked, payment_rate, work_experience, years_experience, project_id, user_id) VALUES
